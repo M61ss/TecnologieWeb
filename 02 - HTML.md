@@ -20,6 +20,16 @@
   - [DTD](#dtd)
   - [Header](#header)
   - [Body](#body)
+- [Elementi del body](#elementi-del-body)
+  - [Elementi di blocco](#elementi-di-blocco)
+  - [Elementi rimpiazzati e non rimpiazzati](#elementi-rimpiazzati-e-non-rimpiazzati)
+- [Heading](#heading)
+- [Paragrafi](#paragrafi)
+- [Allineamento](#allineamento)
+- [`<div>`](#div)
+- [`<span>`](#span)
+- [Horizontal rule](#horizontal-rule)
+- [Stili del testo](#stili-del-testo)
 
 > [**Return to full index**](00%20-%20Index.md)
 
@@ -309,6 +319,7 @@ Elenchiamo alcuni attributi utili:
 ### Body
 
 Il tag `<body>` delimita il corpo del documento. Esso contiene la parte che viene mostrata dal browser ed ammette diversi attributi, tra cui:
+
 - `background = uri`: definisce l’URI di una immagine da usare comesfondo per la pagina.
 - `text = color`: definisce il colore del testo.
 - `bgcolor = color`: in alternativa a `background` definisce il colore di sfondo della pagina.
@@ -331,3 +342,175 @@ _Esempio_:
     </ul>
 </body>
 ```
+
+## Elementi del body
+
+Il body è composto dai seguenti componenti elementari:
+
+- **Intestazioni**: titoli organizzati in gerarchia.
+- **Strutture di testo**: paragrafi, testo indentato, ecc..
+- **Aspetto del testo**: grassetto, corsivo, ecc..
+- **Elenchi e liste**: numerati o puntati.
+- **Tabelle**.
+- **Form** (moduli elettronici): campi di inserimento, checkbox e radio buttons, menu a tendina, bottoni, ecc..
+- **Collegamenti ipertestuali e ancore**.
+- **Immagini e contenuti multimediali** (audio, video, animazioni, ecc.).
+- **Contenuti interattivi**: script, applicazioni esterne.
+
+### Elementi di blocco
+
+Dal punto di vista del layout della pagina gli elementi HTML si dividono in tre grandi categorie:
+
+- Elementi "**block-level**": costituiscono un blocco attorno aa sé e, di conseguenza, vanno a capo automaticamente; ne sono un esempio paragrafi, tabelle, form, ecc..
+- Elementi "**inline**": non vanno a capo e possono essere integrati nel testo, come ad esempio link o immagini.
+- **Liste**: numerate o puntate.
+
+Si devono tenere presente queste regole fondamentali di composizione:
+
+- Un elemento block-level può contenere altri elementi dello stesso tipo o inline.
+- Un elemento inline può contenere solo altri elementi inline.
+
+### Elementi rimpiazzati e non rimpiazzati
+
+Gli elementi rimpiazzati ("**replaced elements**") sono quelli che hanno dimensioni intrinseche, il cui contenuto non è direttamente gestito dal browser, ma viene sostituito con un oggetto esterno, come ad esempio un'immagine, un input o altri componenti multimediali.
+\
+In questi elementi altezza e larghezza sono definite dall'elemento stesso e non da ciò che lo circonda.
+
+Esempi di elementi rimpiazzati sono: `<img>`, `<input>`, `<textarea>`, `<select>`.
+
+Tutti gli altri elementi sono in genere considerati non rimpiazzati: ciò significa che essi non hanno dimensioni intrinseche predefinite e sono gestiti direttamente dal layout del documento HTML.
+
+## Heading
+
+I tag `<h1>`, `<h2>`, ..., `<h6>` servono per definire dei titoli di importanza decrescente.
+
+La "h" sta per "heading", cioè titolo e sono previste sei grandezze. I titoli appaiono in grassetto e lasciano una riga vuota prima e dopo di sé, dunque sono elementi di blocco.
+
+Gli elementi di heading ammettono attributi di allineamento:
+
+```HTML
+<h1 align = left|center|right|justify>
+```
+
+## Paragrafi
+
+Il paragrafo è l'unità di base entro cui suddividere un testo, quindi è un elemento di tipo blocco.
+
+Il tag `<p>` lascia una riga vuota prima della sua apertura e dopo la sua chiusura.
+\
+Se si vuole andare a capo all’interno di un paragrafo si usa l’elemento `<br>`.
+
+_Esempio_:
+
+```HTML
+<p>paragrafo 1</p>
+<p>paragrafo 2</p>
+```
+
+Vengono visualizzati:
+
+```text
+paragrafo 1
+paragrafo 2
+```
+
+## Allineamento
+
+È possibile definire l’allineamento di un paragrafo mediante l’attributo `align`, che può assumere quattro valori:
+
+- `left`.
+- `center`.
+- `right`.
+- `justify`.
+
+## `<div>`
+
+Se al posto di <p> si usa il tag <div>, il blocco di testo va a capo, ma, a differenza del paragrafo, non lascia spazi prima e dopo la sua apertura.
+
+> [!IMPORTANT]
+>
+> `<div>` è l'elemento di tipo blocco per eccellenza.
+
+_Esempio_:
+
+```HTML
+<div>Blocco di testo 1</div>
+<div>Blocco di testo 2</div>
+```
+
+Vengono visualizzati in questo modo:
+
+```text
+Blocco di testo 1
+Blocco di testo 2
+```
+
+## `<span>`
+
+Lo `<span>` è un contenitore generico che può essere annidato all'interno, ad esempio, dei `<div>`.
+
+Esso è un elemento inline, quindi non va a capo, ma continua sulla stessa linea del tag che lo include.
+
+_Esempio_:
+
+```HTML
+<span>Contenitore 1</span><span>Contenitore 2</span>
+```
+
+Vengono visualizzati in questo modo:
+
+```text
+Contenitore 1Contenitore 2
+```
+
+`<span>` è un elemento molto utilizzato, soprattutto insieme ai fogli di stile per dare un aspetto particolare ad un pezzo di testo in un blocco, come, ad esempio, per evidenziare.
+
+> [!IMPORTANT]
+>
+> Se non viene associato ad uno stile è invisibile
+
+## Horizontal rule
+
+Il tag `<hr>` serve ad inserire una riga di separazione.
+
+Alcuni comuni attributi sono:
+
+- `align = {left | center | right}`: allineamento della riga rispetto a ciò che la circonda
+- `size = pixels`: altezza della riga.
+- `width = length`: larghezza della riga in modo assoluto o in percentuale delle dimensioni di ciò che la contiene.
+- `noshade`: riga senza effetto di ombreggiatura.
+
+## Stili del testo
+
+Nella terminologia tipografica lo "stile di un testo" indica le possibili varianti di forma di un carattere: tondo (normale), neretto(grassetto), corsivo.
+
+HTML consente di definire lo stile di un frammento di testo, combinando fra loro anche più stili. I tag che svolgono quest'ultima funzione vengono normalmente suddivisi in due categorie:
+
+- Tag **fisici**: definiscono lo stile del carattere in termini grafici, indipendentemente dalla funzione del testo nel documento.
+
+  _Esempio_:
+
+  ```HTML
+  <tt>monospaced</tt>
+  <i>corsivo</i>
+  <b>grassetto</b>
+  <u>sottolineato (deprecated)</u>
+  <s>barrato (deprecated)</s>
+  ```
+
+- Tag **logici**: forniscono informazioni sul ruolo svolto dalcontenuto,e in base a questo adottano uno stile grafico.
+  
+  _Esempio_:
+
+  ```HTML
+  <strong>visualizzato in grassetto</strong>
+  <em>visualizzato in corsivo</em> 
+  <code>codice: usualmente monospaziato</code>
+  <pre>uguale al precedente</pre>
+  <kbd>keyboard: monospaziato come code</kbd>
+  <abbr>abbreviazione: nessun effetto</abbr>
+  <acronym>acronimo: nessun effetto</acronym>
+  <address>indirizzo fisico o e-mail: corsivo</address>
+  <blockquote>blocco di citazione: rientrato a destra</blockquote>
+  <cite>citazione: corsivo</cite>
+  ```
