@@ -30,6 +30,14 @@
 - [`<span>`](#span)
 - [Horizontal rule](#horizontal-rule)
 - [Stili del testo](#stili-del-testo)
+- [Font (deprecated)](#font-deprecated)
+- [Liste](#liste)
+- [Tabelle](#tabelle)
+  - [Righe](#righe)
+  - [Testate e celle](#testate-e-celle)
+  - [Vantaggi e svantaggi](#vantaggi-e-svantaggi)
+- [Link ipertestuali](#link-ipertestuali)
+  - [Ancore](#ancore)
 
 > [**Return to full index**](00%20-%20Index.md)
 
@@ -499,12 +507,12 @@ HTML consente di definire lo stile di un frammento di testo, combinando fra loro
   ```
 
 - Tag **logici**: forniscono informazioni sul ruolo svolto dalcontenuto,e in base a questo adottano uno stile grafico.
-  
+
   _Esempio_:
 
   ```HTML
   <strong>visualizzato in grassetto</strong>
-  <em>visualizzato in corsivo</em> 
+  <em>visualizzato in corsivo</em>
   <code>codice: usualmente monospaziato</code>
   <pre>uguale al precedente</pre>
   <kbd>keyboard: monospaziato come code</kbd>
@@ -514,3 +522,86 @@ HTML consente di definire lo stile di un frammento di testo, combinando fra loro
   <blockquote>blocco di citazione: rientrato a destra</blockquote>
   <cite>citazione: corsivo</cite>
   ```
+
+## Font (deprecated)
+
+Il tag `<font>` permette di formattare il testo, definendo dimensioni, colore e tipo di carattere. Deprecato da HTML 4.01.
+
+Alcuni attributi di questo tag sono:
+
+- `size = [+|-]n`: definisce le dimensioni del testo (1-7 o relative).
+- `color = color`: definisce il colore del testo.
+- `face = text`: definisce il font del testo.
+
+## Liste
+
+Le liste possono essere di tre tipi:
+
+- **Non ordinate**: `<ul>` è il tag che definisce le liste non ordinate. Gli elementi della lista sono delineati dal tag `<li>`. L'attributo `type` stabilisce la forma dei punti e ammette tre valori: `disc`, `circle` e `square`.
+- **Ordinate**: `<ol>` permette di definire le liste ordinate i cui elementi sono descritti dal tag `<li>`. L'attributo `type` definisce il tipo di numerazione che può essere di cinque categorie: `1 (1, 2, ...)`, `a (a, b, ...)`, `A (A, B, ...)`, `i (i, ii, ...)` e `I (I, II, ...)`.
+- **Di definizione**: `<dl>` permette di costruire una lista di definizioni, che è composta da termini, definiti dal tag `<dt>`, e le relative descrizioni, evidenziate dal tag `<dd>`.
+
+## Tabelle
+
+Le tabelle sono racchise nel tag `<table>`, alcuni dei quali attributi sono:
+
+- `align = {left|center|right}`: definisce l'allineamento della tabella rispetto alla pagina.
+- `width = "n|n%"`: larghezza della tabella. `n` è un numero intero o a virgola mobile avente una propria unità di misura (da specificare), altrimenti può essere espresso in percentuale in riferimento alla dimensione della pagina.
+- `bgcolor = "#RRGGBB"`: colore di sfondo della tabella.
+- `border = "n"`: spessore dei bordi della tabella.
+- `cellspacing, cellpadding`.
+
+### Righe
+
+Una riga è definita dal tag `<tr>`, alcuni dei quali attributi sono:
+
+- `align = {left|center|right|justify}`: allineamento del contenuto delle celle della riga.
+- `valign = {top|middle|bottom|baseline}`: allineamento verticale del contenuto della cella della riga.
+- `bgcolor = "#RRGGBB"`: colore di sfondo della riga.
+
+### Testate e celle
+
+Le celle sono racchiuse nei tag `<th>` e `<td>`:
+
+- `<th>`: serve per le celle della testata.
+- `<td>`: serve per le celle del contenuto.
+
+Questi tag ereditano tutti gli attributi di `<tr>` e in più hanno i seguenti:
+
+- `width, height = {lenght|lenght%}`: specifica le dimensioni della cella in modo assoluto (pixel), un'unità di misura da specificare o come valore in percentuale.
+- `rowspan, colspan = n`: indica su quante righe/colonne della tabella si estende la cella.
+
+### Vantaggi e svantaggi
+
+Le tabelle hanno alcuni vantaggi e svantaggi.
+
+Vantaggi:
+
+- Permettono di costruire griglie in cui inserire i contenuti di un sito in un formato accattivante.
+- Consentono di realizzare layout "liquidi", ovvero che si adattano allo schermo dell'utente utilizzando le dimensioni in percentuale.
+
+Svantaggi:
+
+- Mischiano elementi di formattazione dei dati ai dati stessi.
+- Appesantiscono le pagine con molti elementi, rallentandone lo scaricamento.
+
+> [!NOTE]
+>
+> Oggi si stanno abbandonando le tabelle a causa dei loro svantaggi e per la presenza di alternative, tuttavia sono ancora molto usate.
+
+## Link ipertestuali
+
+Un link ipertestuale consente di stabilire una connessione tra una risorsa web e un'altra. Un link è costituito da due estremi, detti "ancore", e da una direzione di percorrenza:
+
+source anchor -> destination anchor
+
+La source anchor è contenuta nella pagina di partenza, la destination anchor è una qualsiasi risorsa web.
+\
+La risorsa di destinazione si ottiene "visitando" il link.
+
+### Ancore
+
+Le ancore, sia di origine che di destinazione, si esprimono tramite il tag `<a>`.
+
+- Le ancore di origine sono caratterizzate dall'attributo `href`, che contiene l'URL di destinazione.
+- Le ancora di destinazione contengono invece l'attributo `name`.
